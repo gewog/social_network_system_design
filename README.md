@@ -1,21 +1,19 @@
-System design социальной сети
+# System Design of a Social Network
 
-> Реализация ключевых функций социальной сети по принципам REST и OpenAPI 3.0
-
----
-Описание проекта
-
-Проект представляет собой API-спецификацию для социальной сети, типа ВКонтакте.  
-Включает основные функции:
-- Публикация постов и загрузка медиа
-- Управление друзьями
-- Просмотр профиля пользователя
-- Работа с чатами и сообщениями
-- Просмотр ленты
-
-API описано в формате OpenAPI 3.0 (Swagger), что позволяет:
-- Генерировать интерактивную документацию
-- Автоматически создавать клиенты (на Python, JS и др.)
-- Упрощать командную разработку
+> Implementation of core social network features following REST principles and OpenAPI 3.0
 
 ---
+## Project Description
+
+This project is an API specification for a social network similar to VKontakte.  
+It includes the following core features:
+- Posting content and uploading media
+- Friend management (add/remove)
+- User profile viewing
+- Chat and messaging functionality
+- News feed retrieval
+
+The API is defined using OpenAPI 3.0 (Swagger), enabling:
+- Generation of interactive documentation
+- Automatic client SDK generation (for Python, JavaScript, etc.)
+- Streamlined team collaboration and development
