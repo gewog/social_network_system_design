@@ -1,0 +1,337 @@
+openapi: 3.0.3
+info:
+  title: VKontakte Social Network API
+  description: |
+    REST API для социальной сети ВКонтакте. Поддерживает публикации, медиа, чаты и сообщения.
+    Реализовано по принципам OpenAPI 3.0.
+  version: 1.0.0
+  contact:
+    name: VK API Team
+    email: api@vk.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: https://api.vk.com/v1
+    description: Production server
+  - url: https://api.vk.dev/v1
+    description: Development server
+
+tags:
+  - name: posts
+    description: Работа с постами и медиа
+  - name: messages
+    description: Работа с чатами и сообщениями
+
+security:
+  - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "usr_123"
+        name:
+          type: string
+          example: "Иван Петров"
+        avatar_url:
+          type: string
+          format: uri
+          example: "https://vk.com/avatars/123.jpg"
+
+    Media:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "media_456"
+        url:
+          type: string
+          format: uri
+          example: "https://vk.com/media/456.jpg"
+        type:
+          type: string
+          enum: [image, video, audio]
+          example: "image"
+
+    Post:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "post_789"
+        author:
+          $ref: '#/components/schemas/User'
+        title:
+          type: string
+          example: "Мой день"
+        text:
+          type: string
+          example: "Отличный день сегодня!"
+        media:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+        likes_count:
+          type: integer
+          example: 42
+        comments_count:
+          type: integer
+          example: 5
+        shares_count:
+          type: integer
+          example: 3
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-04-05T12:00:00Z"
+
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "msg_101"
+        chat_id:
+          type: string
+          example: "chat_202"
+        sender:
+          $ref: '#/components/schemas/User'
+        text:
+          type: string
+          example: "Привет!"
+        media:
+          $ref: '#/components/schemas/Media'
+        emoji:
+          type: string
+          example: "👍"
+        status:
+          type: string
+          enum: [sent, delivered, read]
+          example: "read"
+        sent_at:
+          type: string
+          format: date-time
+          example: "2025-04-05T12:05:00Z"
+        received_at:
+          type: string
+          format: date-time
+          example: "2025-04-05T12:05:01Z"
+
+    PaginatedPosts:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Post'
+        pagination:
+          type: object
+          properties:
+            offset:
+              type: integer
+              example: 0
+            limit:
+              type: integer
+              example: 10
+            total:
+              type: integer
+              example: 150
+
+    PaginatedMessages:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+        pagination:
+          type: object
+          properties:
+            offset:
+              type: integer
+              example: 0
+            limit:
+              type: integer
+              example: 20
+
+paths:
+  /posts:
+    post:
+      tags: [posts]
+      summary: Создать новый пост
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, text]
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+                media_ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          description: Пост успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '400':
+          description: Некорректные данные
+        '401':
+          description: Неавторизован
+      security:
+        - bearerAuth: []
+
+    get:
+      tags: [posts]
+      summary: Получить ленту постов (с пагинацией)
+      parameters:
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        '200':
+          description: Список постов
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPosts'
+        '401':
+          description: Неавторизован
+
+  /posts/{id}/media:
+    post:
+      tags: [posts]
+      summary: Загрузить медиа для поста
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Медиа загружено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+        '400':
+          description: Файл не поддерживается
+        '404':
+          description: Пост не найден
+
+  /chats:
+    get:
+      tags: [messages]
+      summary: Получить список диалогов
+      responses:
+        '200':
+          description: Список чатов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    user:
+                      $ref: '#/components/schemas/User'
+                    last_message:
+                      $ref: '#/components/schemas/Message'
+                    unread_count:
+                      type: integer
+        '401':
+          description: Неавторизован
+
+  /chats/{chatId}/messages:
+    get:
+      tags: [messages]
+      summary: Получить сообщения в чате
+      parameters:
+        - name: chatId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Сообщения из чата
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMessages'
+
+    post:
+      tags: [messages]
+      summary: Отправить сообщение в чат
+      parameters:
+        - name: chatId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [text]
+              properties:
+                text:
+                  type: string
+                media_id:
+                  type: string
+                emoji:
+                  type: string
+      responses:
+        '201':
+          description: Сообщение отправлено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Чат не найден
