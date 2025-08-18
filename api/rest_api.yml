@@ -22,6 +22,8 @@ tags:
     description: Работа с постами и медиа
   - name: messages
     description: Работа с чатами и сообщениями
+  - name: users
+    description: Операции с пользователями (друзья, профиль)
 
 security:
   - bearerAuth: []
@@ -335,3 +337,71 @@ paths:
                 $ref: '#/components/schemas/Message'
         '404':
           description: Чат не найден
+  /friends:
+    get:
+      tags: [ users ]
+      summary: Получить список друзей текущего пользователя
+      responses:
+        '200':
+          description: Список друзей
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '401':
+          description: Неавторизован
+
+    post:
+      tags: [ users ]
+      summary: Добавить пользователя в друзья
+      parameters:
+        - name: user_id
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Пользователь добавлен в друзья
+        '400':
+          description: Некорректный ID
+        '409':
+          description: Уже в друзьях
+
+  /friends/{user_id}:
+    delete:
+      tags: [ users ]
+      summary: Удалить пользователя из друзей
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Пользователь удалён из друзей
+        '404':
+          description: Друг не найден
+
+  /users/{id}:
+    get:
+      tags: [ users ]
+      summary: Получить анкету пользователя
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Данные пользователя
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Пользователь не найден
