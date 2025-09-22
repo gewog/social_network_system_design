@@ -154,5 +154,5 @@
 </div>
 
 <div align="center">
-  <img src="https://media.tenor.com/z3EHrpy3tt4AAAAj/hatsune-miku-miku.gif" alt="Demo of SmartAdBot" width="250" />
+  <img src="https://media.tenor.com/UZNnisBgqQoAAAAi/loof-and-timmy-trex.gif" alt="Demo of SmartAdBot" width="200" />
 </div>
