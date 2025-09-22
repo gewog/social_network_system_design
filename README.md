@@ -1,3 +1,7 @@
+> **⚠️ NOTE: This README is a work in progress!**
+> The project is still evolving, and this documentation will be expanded.
+> Check back later for updates!
+
 <div style="background: #e1e5e8; padding: 40px; border-radius: 16px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);">
   <h1 style="color: #3b3f42; text-align: center; margin-bottom: 12px; font-size: 3.2em; font-weight: 700; letter-spacing: -0.5px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
     🌐 System Design of a Social Network
@@ -25,7 +29,7 @@
         <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
         Friend management (add/remove)
       </li>
-      <li style="position: relative; padding-left: 16px; margin-bottom: 10px;">
+    <li style="position: relative; padding-left: 16px; margin-bottom: 10px;">
         <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
         User profile viewing
       </li>
@@ -147,4 +151,8 @@
   <div style="text-align: center; margin-top: 25px; font-size: 0.9em; color: #2766a1; opacity: 0.8; font-weight: 500;">
     Designed with OpenAPI 3.0 & dbdiagram.io | © 2025 Social Network Architecture
   </div>
+</div>
+
+<div align="center">
+  <img src="https://media.tenor.com/z3EHrpy3tt4AAAAj/hatsune-miku-miku.gif" alt="Demo of SmartAdBot" width="250" />
 </div>
