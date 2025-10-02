@@ -47,6 +47,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+*.tmp
 
 # Sphinx documentation
 docs/_build/
@@ -62,3 +63,5 @@ scratch/
 
 # IPython Notebook templates
 template.ipynb
+
+README_.md
