@@ -231,6 +231,115 @@
 └─────────────┘ └─────────────┘ └─────────────┘
     </pre>
 </div>
+<br>
+ <!-- Требования -->
+  <div style="background: #ffffff; border: 1px solid #d0d5d9; border-radius: 14px; padding: 32px; box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.08);">
+    <h2 style="color: #2766a1; margin-top: 0; font-size: 1.9em; border-bottom: 2px solid #d0d5d9; padding-bottom: 10px; font-weight: 600; position: relative;">
+      🎈 Требования к системе
+      <span style="position: absolute; right: 0; top: 0; font-size: 0.8em; color: #d0d5d9;"></span>
+    </h2>
+<p style="color: #1a1a1a; line-height: 1.8; font-size: 1.15em; margin-top: 14px; font-weight: 500;">
+  Функциональные требования:
+</p>
+<ul style="color: #1a1a1a; line-height: 2.0; font-size: 1.15em; margin-top: 16px; padding-left: 24px; list-style-type: none;">
+  <li style="position: relative; padding-left: 16px; margin-bottom: 10px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    Управление пользователями и профилями<br>
+    • Просмотр анкеты пользователя по ID.
+  </li>
+  <li style="position: relative; padding-left: 16px; margin-bottom: 10px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    Управление друзьями<br>
+    • Просмотр списка друзей текущего пользователя.<br>
+    • Добавление пользователя в друзья по ID.<br>
+    • Удаление пользователя из друзей по ID.
+  </li>
+  <li style="position: relative; padding-left: 16px; margin-bottom: 10px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    Публикация контента<br>
+    • Создание нового поста (с текстом и медиафайлами).<br>
+    • Загрузка медиафайлов для поста.<br>
+    • Просмотр ленты постов с пагинацией.
+  </li>
+  <li style="position: relative; padding-left: 16px; margin-bottom: 10px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    Чат и сообщения<br>
+    • Просмотр списка диалогов (чатов).<br>
+    • Просмотр истории сообщений в чате с пагинацией.<br>
+    • Отправка текстовых сообщений в чат (с поддержкой медиафайлов и эмодзи).<br>
+    • Отображение статусов сообщений: отправлено, доставлено, прочитано.
+  </li>
+  <li style="position: relative; padding-left: 16px; margin-bottom: 10px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    Работа с медиафайлами<br>
+    • Загрузка медиафайлов для постов.
+  </li>
+</ul>
+
+<p style="color: #1a1a1a; line-height: 1.8; font-size: 1.15em; margin-top: 14px; font-weight: 500;">
+  Нефункциональные требования:
+</p>
+<ul style="color: #1a1a1a; line-height: 2.0; font-size: 1.15em; margin-top: 16px; padding-left: 24px; list-style-type: none;">
+  <li style="position: relative; padding-left: 16px; margin-bottom: 10px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    Производительность<br>
+    • Daily Active Users (DAU): Поддержка 100 000 000 активных пользователей.<br>
+    • Availability: Доступность системы на уровне 99.95%.<br>
+    • Response Time:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;• Ответ на отправку сообщения: ≤ 1 секунда.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;• Ответ на получение сообщений: ≤ 5 секунд.<br>
+    • Максимальная нагрузка:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;• 1000 одновременных запросов на отправку сообщений.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;• 1000 одновременных пользователей в чате.<br>
+    • Среднее количество создаваемых постов: 5 постов в день на активного пользователя.<br>
+    • Средний размер одного поста: 10 КБ (текст + метаданные).<br>
+    • Средний размер медиафайла: 2 МБ (изображение, видео, аудио).
+  </li>
+  <li style="position: relative; padding-left: 16px; margin-bottom: 10px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    Ограничения и правила<br>
+    • Хранение только текстовых сообщений (без поддержки голосовых или видеозвонков).<br>
+    • Поддержка только пользователей из СНГ.<br>
+    • Ограничение на количество сообщений: 10 прочитанных и 2 отправленных в день на пользователя.<br>
+    • Сообщения хранятся всегда (без автоматического удаления).
+  </li>
+</ul>
+
+</div>
+<br>
+<div>
+    <h2 style="color: #2766a1; margin-top: 0; font-size: 1.9em; border-bottom: 2px solid #d0d5d9; padding-bottom: 10px; font-weight: 600; position: relative;">
+      🔮 Приблизительный расчёт требуемых ресурсов
+      <span style="position: absolute; right: 0; top: 0; font-size: 0.8em; color: #d0d5d9;"></span>
+    </h2>
+
+<ul style="color: #1a1a1a; line-height: 2.0; font-size: 1.1em; margin-top: 8px; padding-left: 24px; list-style-type: none;">
+  <li style="position: relative; padding-left: 16px; margin-bottom: 12px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    <strong>Размер базы данных для хранения сообщений за 5 лет:</strong><br>
+    in progress...
+  </li>
+
+  <li style="position: relative; padding-left: 16px; margin-bottom: 12px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    <strong>Входящий трафик на создание постов:</strong><br>
+    in progress...
+  </li>
+
+  <li style="position: relative; padding-left: 16px; margin-bottom: 12px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    <strong>Количество дисков для хранения данных за 5 лет:</strong><br>
+    in progress...
+  </li>
+
+  <li style="position: relative; padding-left: 16px; margin-bottom: 12px;">
+    <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
+    <strong>RPS (запросов в секунду) по созданию и чтению постов:</strong><br>
+    in progress...
+  </li>
+</ul>
+
+</div>
 
   <!-- Интерактивная визуализация -->
 <h3 style="color: #2766a1; margin-top: 30px; font-size: 1.5em; font-weight: 600; position: relative;">
