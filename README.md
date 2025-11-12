@@ -281,7 +281,3 @@
   <img src="https://media.tenor.com/UZNnisBgqQoAAAAi/loof-and-timmy-trex.gif" alt="Демо" width="200" />
 </div>
 
-
-<div align="center">
-  <img src="https://media.tenor.com/UZNnisBgqQoAAAAi/loof-and-timmy-trex.gif" alt="Demo of SmartAdBot" width="200" />
-</div>
