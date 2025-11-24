@@ -291,6 +291,7 @@
     • Максимальная нагрузка:<br>
     &nbsp;&nbsp;&nbsp;&nbsp;• 1000 одновременных запросов на отправку сообщений.<br>
     &nbsp;&nbsp;&nbsp;&nbsp;• 1000 одновременных пользователей в чате.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;• 1000 символов максимальный размер сообщения.<br>
     • Среднее количество создаваемых постов: 5 постов в день на активного пользователя.<br>
     • Средний размер одного поста: 10 КБ (текст + метаданные).<br>
     • Средний размер медиафайла: 2 МБ (изображение, видео, аудио).
@@ -298,10 +299,11 @@
   <li style="position: relative; padding-left: 16px; margin-bottom: 10px;">
     <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
     Ограничения и правила<br>
-    • Хранение только текстовых сообщений (без поддержки голосовых или видеозвонков).<br>
+    • Хранение текстовых сообщений (без поддержки голосовых или видеозвонков) (5 лет).<br>
+    • Хранение постов с медиа (5 лет).<br>
     • Поддержка только пользователей из СНГ.<br>
     • Ограничение на количество сообщений: 10 прочитанных и 2 отправленных в день на пользователя.<br>
-    • Сообщения хранятся всегда (без автоматического удаления).
+    • Сообщения и посты с медиа хранятся всегда (без автоматического удаления).
   </li>
 </ul>
 
@@ -316,26 +318,26 @@
 <ul style="color: #1a1a1a; line-height: 2.0; font-size: 1.1em; margin-top: 8px; padding-left: 24px; list-style-type: none;">
   <li style="position: relative; padding-left: 16px; margin-bottom: 12px;">
     <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
-    <strong>Размер базы данных для хранения сообщений за 5 лет:</strong><br>
-    in progress...
+    <strong>Размер базы данных для хранения сообщений за 5 лет (с репликами и бэкапами):</strong><br>
+    2600 Тб
   </li>
 
   <li style="position: relative; padding-left: 16px; margin-bottom: 12px;">
     <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
-    <strong>Входящий трафик на создание постов:</strong><br>
-    in progress...
+    <strong>Входящий трафик на создание постов (с учетом наличия медиа в них):</strong><br>
+    11631 Мб/с 
   </li>
 
   <li style="position: relative; padding-left: 16px; margin-bottom: 12px;">
     <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
-    <strong>Количество дисков для хранения данных за 5 лет:</strong><br>
-    in progress...
+    <strong>Количество дисков для хранения данных за 5 лет (сообщения + посты с медиа, SSD (8 ТБ)):</strong><br>
+    ~787 500 штук
   </li>
 
   <li style="position: relative; padding-left: 16px; margin-bottom: 12px;">
     <span style="position: absolute; left: 0; top: 5px; width: 6px; height: 6px; background: #2766a1; border-radius: 50%;"></span>
     <strong>RPS (запросов в секунду) по созданию и чтению постов:</strong><br>
-    in progress...
+    RPS (чтение) 11575 запросов/ RPS (запись) 5787 запросов
   </li>
 </ul>
 
