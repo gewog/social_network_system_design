@@ -1,6 +1,6 @@
 > **⚠️ Примечание:** Этот README находится в процессе разработки!
 Проект всё ещё развивается, и документация будет дополняться.
-Заглядывайте позже для обновлений!
+Заглядывайте позже для обновлений!!!
 
 <div style="background: #e1e5e8; padding: 40px; border-radius: 16px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);">
   <h1 style="color: #3b3f42; text-align: center; margin-bottom: 12px; font-size: 3.2em; font-weight: 700; letter-spacing: -0.5px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
